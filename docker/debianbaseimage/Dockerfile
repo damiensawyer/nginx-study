@@ -1,6 +1,6 @@
 FROM debian:10.4 AS debbase1 
 RUN apt-get update
-RUN apt-get install htop neofetch --assume-yes
+RUN apt-get install htop neofetch mc --assume-yes
 
 FROM debbase1
 RUN echo 'alias ll="ls -alH"' >> ~/.bashrc
