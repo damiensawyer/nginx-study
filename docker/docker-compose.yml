@@ -1,0 +1,8 @@
+version: '3.6'
+services:
+  nginxStudy.debianBase:
+    build:
+      context: DebianBaseImage/
+    container_name: nginxdeb
+    ports:
+      - 8888:80
