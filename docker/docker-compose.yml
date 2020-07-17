@@ -1,8 +1,10 @@
 version: '3.6'
 services:
-  nginxStudy.debianBase:
+  nginxstud.debianbase:
     build:
       context: DebianBaseImage/
+    tty: true # https://stackoverflow.com/a/54726352/494635
+    stdin_open: true
     container_name: nginxdeb
     ports:
       - 8888:80
