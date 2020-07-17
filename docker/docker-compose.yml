@@ -2,10 +2,10 @@ version: '3.6'
 services:
   nginxstud.debianbase:
     build:
-      context: ..
-      dockerfile: docker/debianbaseimage/dockerfile
+      context: ../tempfiles # Allows us to copy files into the imags. 
+      dockerfile: ../docker/debianbaseimage/dockerfile # relative to (context:)
     tty: true # https://stackoverflow.com/a/54726352/494635
-    stdin_open: true
+    stdin_open: true 
     container_name: nginxdeb
     ports:
       - 8888:80
