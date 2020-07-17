@@ -2,7 +2,8 @@ version: '3.6'
 services:
   nginxstud.debianbase:
     build:
-      context: DebianBaseImage/
+      context: ..
+      dockerfile: docker/debianbaseimage/dockerfile
     tty: true # https://stackoverflow.com/a/54726352/494635
     stdin_open: true
     container_name: nginxdeb
