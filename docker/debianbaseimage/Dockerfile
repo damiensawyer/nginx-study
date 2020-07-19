@@ -19,8 +19,8 @@ RUN echo 'alias q="exit"' >> ~/.bashrc
 COPY --from=debbase1 nginx-1.19.1 ./nginx-1.19.1
 COPY . .
 RUN cp nginx.service /lib/systemd/system/nginx.service
-#RUN service nginx start
-#RUN tar -zxvf nginx-1.19.1.tar.gz && rm nginx-1.19.1.tar.gz
+
+#RUN systemctl start nginx
 
 COPY . .
 
