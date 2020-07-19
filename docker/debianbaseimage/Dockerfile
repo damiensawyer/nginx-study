@@ -11,6 +11,7 @@ RUN tar -zxvf nginx-1.19.1.tar.gz && rm nginx-1.19.1.tar.gz
 WORKDIR nginx-1.19.1
 #RUN ./configure --sbin-path=/usr/bin/nginx --conf-path=/etc/nginx/nginx.conf --error-log-path=/var/log/nginx.error.log --http-log-path=/var/log/nginx/access.log --with-pcre --pid-path=/var/run/nginx.pid --with-http_ssl_module
 RUN ./configure --sbin-path=/usr/bin/nginx --conf-path=/etc/nginx/nginx.conf --error-log-path=/var/log/nginx.error.log --http-log-path=/var/log/nginx/access.log --with-pcre --pid-path=/var/run/nginx.pid
+RUN make install 
 
 FROM debbase1
 RUN echo 'alias ll="ls -alH"' >> ~/.bashrc
@@ -19,6 +20,7 @@ RUN echo 'alias q="exit"' >> ~/.bashrc
 COPY --from=debbase1 nginx-1.19.1 ./nginx-1.19.1
 COPY . .
 RUN cp nginx.service /lib/systemd/system/nginx.service
+
 
 #RUN systemctl start nginx
 
