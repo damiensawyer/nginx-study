@@ -19,10 +19,17 @@ RUN echo 'alias q="exit"' >> ~/.bashrc
 
 COPY --from=debbase1 nginx-1.19.1 ./nginx-1.19.1
 COPY . .
-RUN cp nginx.service /lib/systemd/system/nginx.service
 
-
-#RUN systemctl start nginx
-
+## This configures and runs systemd however doesn't work as systemd isn't running inside the container https://stackoverflow.com/a/62489079/494635. 
+## If you were doing this on a VM or bare metal though you'd probably do this. 
+##RUN cp nginx.service /lib/systemd/system/nginx.service
+#RUN systemctl start nginx 
 COPY . .
+#RUN nginx
+RUN echo 'hello'
+
+# Look here for sample dockerfiles for nginx https://hub.docker.com/_/nginx
+CMD ["nginx", "-g", "daemon off;"]
+#RUN  ps aux | grep nginx
+
 

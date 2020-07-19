@@ -17,4 +17,4 @@ fi
 docker-compose -f "docker/docker-compose.yml" down ## call down to get new volume https://github.com/docker/compose/issues/4476
 docker-compose -f "docker/docker-compose.yml" --no-ansi up -d  --build --force-recreate --remove-orphans  # "Build images before starting containers." ... so that you get changes in 'context' folder.
 docker ps  -a
-docker attach nginxdeb
+#docker attach nginxdeb
