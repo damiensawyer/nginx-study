@@ -29,7 +29,8 @@ COPY . .
 RUN echo 'hello'
 
 # Look here for sample dockerfiles for nginx https://hub.docker.com/_/nginx
-CMD ["nginx", "-g", "daemon off;"]
-#RUN  ps aux | grep nginx
+# This starts the nginx proeces. When that process stops, the container closes. You can still connect to the container by running docker exec -it containername /bin/bash... if you kill nginx, eg, with "nginx -s stop" then, you guess it, the container stops. 
+CMD ["nginx", "-g", "daemon off;"] 
+
 
 
